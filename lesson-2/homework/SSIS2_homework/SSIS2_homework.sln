@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "SSIS2_homework", "SSIS2_homework.dtproj", "{1C9C3AF7-2B2A-1E73-691E-6CF1E9D1405D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C9C3AF7-2B2A-1E73-691E-6CF1E9D1405D}.Development|Default.ActiveCfg = Development
+		{1C9C3AF7-2B2A-1E73-691E-6CF1E9D1405D}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0A353A39-828B-4AA6-B2D5-CE9C0F88B7AE}
+	EndGlobalSection
+EndGlobal
