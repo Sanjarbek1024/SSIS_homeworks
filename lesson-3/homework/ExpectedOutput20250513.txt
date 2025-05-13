@@ -1,0 +1,3 @@
+102,Samantha Harvey,HR,67000
+103,Harvey Specter,Legal,90000
+104,Louis Litt,Legal,80000
