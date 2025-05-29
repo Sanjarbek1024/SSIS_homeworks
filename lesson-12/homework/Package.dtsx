@@ -1,0 +1,1112 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/27/2025 3:56:58 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SANJARBEK"
+  DTS:CreatorName="SANJARBEK\Mezon"
+  DTS:DTSID="{6D9B3F88-223C-45A8-8EB7-15886553D3E4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="3072"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{A0420947-F64D-4F7F-B00E-3DA17C687975}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ErrorRows]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{473EBE03-CADA-4443-8B92-31B65B479C88}"
+      DTS:ObjectName="ErrorRows">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="3072"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Mezon\OneDrive\Desktop\CODES\SSIS\nimadur.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Age"
+              DTS:DTSID="{B2A65E83-952C-40CC-8F65-BA74EF568140}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ID"
+              DTS:DTSID="{53A6A487-B124-4276-AE5A-6BEFF32D618F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Name"
+              DTS:DTSID="{8BBC4C72-AA3E-46DA-AB03-6D8A0881F001}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="New Age"
+              DTS:DTSID="{9679E2D9-2F51-4D25-868B-4FDA4DF67F99}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="New Name"
+              DTS:DTSID="{9F33EAEC-1DB0-4934-93CC-5DC494B6705C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="59"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Cleaned Age"
+              DTS:DTSID="{D7B9BAA0-2F0B-4940-8DA4-611F73F245D8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LoadTime"
+              DTS:DTSID="{7B6F8212-9DCF-48A6-BCD6-EAAB06159942}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{A6295E7C-A884-4907-B9C2-833DA29C8999}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{B097EC1A-0196-4435-84E7-114FD265F8E3}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Logging]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{8F023009-EC8E-4E59-9B78-A3C5F17A825A}"
+      DTS:ObjectName="Logging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Mezon\OneDrive\Desktop\CODES\SSIS\nimadur.txt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SQL Connection maneger]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{FC712273-96D8-421E-999C-C8516F2CDD32}"
+      DTS:ObjectName="SQL Connection maneger">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost\SANJARBEK;Initial Catalog=SSIS12;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{FC712273-96D8-421E-999C-C8516F2CDD32}localhost\SANJARBEK.SSIS12;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ConfigString="Logging"
+      DTS:CreationName="Microsoft.LogProviderTextFile"
+      DTS:Description="Writes log entries for events to a CSV file"
+      DTS:DTSID="{31A59E88-04FF-4FBE-A9F0-31B795A6CEBB}"
+      DTS:ObjectName="SSIS log provider for Text files">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
+  <DTS:Variables />
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1">
+    <DTS:Property
+      DTS:DataType="8"
+      DTS:Name="EventFilter">4,7,OnError,24,OnPipelinePreEndOfRowset,12,OnTaskFailed,9,OnWarning</DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnError"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnPipelinePreEndOfRowset"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnTaskFailed"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnWarning"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{31A59E88-04FF-4FBE-A9F0-31B795A6CEBB}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Clean Age Data"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B2782B1B-2E6A-4D6A-97C9-F1E8F782A097}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clean Age Data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Clean Age Data\Adding new columns"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Adding new columns"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Clean Age Data\Adding new columns.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Clean Age Data\Adding new columns.Inputs[Derived Column Input].Columns[New Age]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="New Age"
+                      lineageId="Package\Clean Age Data\Correcting column's datatype.Outputs[Data Conversion Output].Columns[New Age]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Clean Age Data\Adding new columns.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Clean Age Data\Adding new columns.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean Age Data\Adding new columns.Outputs[Derived Column Output].Columns[Cleaned Age]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="59"
+                      lineageId="Package\Clean Age Data\Adding new columns.Outputs[Derived Column Output].Columns[Cleaned Age]"
+                      name="Cleaned Age"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Clean Age Data\Correcting column's datatype.Outputs[Data Conversion Output].Columns[New Age]} + "years old"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[New Age] + "years old"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Clean Age Data\Adding new columns.Outputs[Derived Column Output].Columns[LoadTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Clean Age Data\Adding new columns.Outputs[Derived Column Output].Columns[LoadTime]"
+                      name="LoadTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Clean Age Data\Adding new columns.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Clean Age Data\Adding new columns.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean Age Data\Adding new columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Clean Age Data\Adding new columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Clean Age Data\Adding new columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Clean Age Data\Adding new columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Clean Age Data\Correcting column's datatype"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Correcting column's datatype"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Clean Age Data\Correcting column's datatype.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Clean Age Data\Correcting column's datatype.Inputs[Data Conversion Input].Columns[Age]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Age"
+                      lineageId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Output].Columns[Age]" />
+                    <inputColumn
+                      refId="Package\Clean Age Data\Correcting column's datatype.Inputs[Data Conversion Input].Columns[Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Name"
+                      lineageId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Output].Columns[Name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Clean Age Data\Correcting column's datatype.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Clean Age Data\Correcting column's datatype.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean Age Data\Correcting column's datatype.Outputs[Data Conversion Output].Columns[New Age]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Clean Age Data\Correcting column's datatype.Outputs[Data Conversion Output].Columns[New Age]"
+                      name="New Age"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Output].Columns[Age]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Clean Age Data\Correcting column's datatype.Outputs[Data Conversion Output].Columns[New Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Clean Age Data\Correcting column's datatype.Outputs[Data Conversion Output].Columns[New Name]"
+                      name="New Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Output].Columns[Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Clean Age Data\Correcting column's datatype.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Clean Age Data\Correcting column's datatype.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean Age Data\Correcting column's datatype.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Clean Age Data\Correcting column's datatype.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Clean Age Data\Correcting column's datatype.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Clean Age Data\Correcting column's datatype.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Clean Age Data\Loadding data into SQL table"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Loadding data into SQL table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[CleanedTable]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Clean Age Data\Loadding data into SQL table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SQL Connection maneger]"
+                  connectionManagerRefId="Package.ConnectionManagers[SQL Connection maneger]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Clean Age Data\Loadding data into SQL table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="RedirectRow"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Clean Age Data\Loadding data into SQL table.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\Clean Age Data\Loadding data into SQL table.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\Clean Age Data\Loadding data into SQL table.Inputs[OLE DB Destination Input].Columns[LoadTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LoadTime"
+                      externalMetadataColumnId="Package\Clean Age Data\Loadding data into SQL table.Inputs[OLE DB Destination Input].ExternalColumns[LoadTime]"
+                      lineageId="Package\Clean Age Data\Adding new columns.Outputs[Derived Column Output].Columns[LoadTime]" />
+                    <inputColumn
+                      refId="Package\Clean Age Data\Loadding data into SQL table.Inputs[OLE DB Destination Input].Columns[Cleaned Age]"
+                      cachedDataType="wstr"
+                      cachedLength="59"
+                      cachedName="Cleaned Age"
+                      externalMetadataColumnId="Package\Clean Age Data\Loadding data into SQL table.Inputs[OLE DB Destination Input].ExternalColumns[Age]"
+                      lineageId="Package\Clean Age Data\Adding new columns.Outputs[Derived Column Output].Columns[Cleaned Age]" />
+                    <inputColumn
+                      refId="Package\Clean Age Data\Loadding data into SQL table.Inputs[OLE DB Destination Input].Columns[New Name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="New Name"
+                      externalMetadataColumnId="Package\Clean Age Data\Loadding data into SQL table.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Clean Age Data\Correcting column's datatype.Outputs[Data Conversion Output].Columns[New Name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Clean Age Data\Loadding data into SQL table.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Clean Age Data\Loadding data into SQL table.Inputs[OLE DB Destination Input].ExternalColumns[Age]"
+                      dataType="wstr"
+                      length="59"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\Clean Age Data\Loadding data into SQL table.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="100"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Clean Age Data\Loadding data into SQL table.Inputs[OLE DB Destination Input].ExternalColumns[LoadTime]"
+                      dataType="dbTimeStamp"
+                      name="LoadTime" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Clean Age Data\Loadding data into SQL table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Clean Age Data\Loadding data into SQL table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean Age Data\Loadding data into SQL table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Clean Age Data\Loadding data into SQL table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Clean Age Data\Loadding data into SQL table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Clean Age Data\Loadding data into SQL table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Clean Age Data\Loading Data from SQL server"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Loading Data from SQL server"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[EmployeeFacts]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Clean Age Data\Loading Data from SQL server.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SQL Connection maneger]"
+                  connectionManagerRefId="Package.ConnectionManagers[SQL Connection maneger]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Output].Columns[Age]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Output].ExternalColumns[Age]"
+                      length="10"
+                      lineageId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Output].Columns[Age]"
+                      name="Age"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Output].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      lineageId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Output].Columns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      length="100"
+                      lineageId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Output].ExternalColumns[Age]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Name" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Error Output].Columns[Age]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Error Output].Columns[Age]"
+                      name="Age" />
+                    <outputColumn
+                      refId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Clean Age Data\Loading error rows"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="3072"
+              name="Loading error rows"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Clean Age Data\Loading error rows.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ErrorRows]"
+                  connectionManagerRefId="Package.ConnectionManagers[ErrorRows]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].Columns[Age]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Age"
+                      externalMetadataColumnId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].ExternalColumns[Age]"
+                      lineageId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Output].Columns[Age]" />
+                    <inputColumn
+                      refId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].Columns[Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].Columns[New Age]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="New Age"
+                      externalMetadataColumnId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].ExternalColumns[New Age]"
+                      lineageId="Package\Clean Age Data\Correcting column's datatype.Outputs[Data Conversion Output].Columns[New Age]" />
+                    <inputColumn
+                      refId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].Columns[New Name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="New Name"
+                      externalMetadataColumnId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].ExternalColumns[New Name]"
+                      lineageId="Package\Clean Age Data\Correcting column's datatype.Outputs[Data Conversion Output].Columns[New Name]" />
+                    <inputColumn
+                      refId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].Columns[Cleaned Age]"
+                      cachedDataType="wstr"
+                      cachedLength="59"
+                      cachedName="Cleaned Age"
+                      externalMetadataColumnId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].ExternalColumns[Cleaned Age]"
+                      lineageId="Package\Clean Age Data\Adding new columns.Outputs[Derived Column Output].Columns[Cleaned Age]" />
+                    <inputColumn
+                      refId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].Columns[LoadTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LoadTime"
+                      externalMetadataColumnId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].ExternalColumns[LoadTime]"
+                      lineageId="Package\Clean Age Data\Adding new columns.Outputs[Derived Column Output].Columns[LoadTime]" />
+                    <inputColumn
+                      refId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                      lineageId="Package\Clean Age Data\Loadding data into SQL table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\Clean Age Data\Loadding data into SQL table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].ExternalColumns[Age]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].ExternalColumns[New Age]"
+                      dataType="wstr"
+                      length="50"
+                      name="New Age" />
+                    <externalMetadataColumn
+                      refId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].ExternalColumns[New Name]"
+                      dataType="wstr"
+                      length="100"
+                      name="New Name" />
+                    <externalMetadataColumn
+                      refId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].ExternalColumns[Cleaned Age]"
+                      dataType="wstr"
+                      length="59"
+                      name="Cleaned Age" />
+                    <externalMetadataColumn
+                      refId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].ExternalColumns[LoadTime]"
+                      dataType="dbTimeStamp"
+                      name="LoadTime" />
+                    <externalMetadataColumn
+                      refId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Clean Age Data.Paths[Data Conversion Output]"
+              endId="Package\Clean Age Data\Adding new columns.Inputs[Derived Column Input]"
+              name="Data Conversion Output"
+              startId="Package\Clean Age Data\Correcting column's datatype.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Clean Age Data.Paths[Derived Column Output]"
+              endId="Package\Clean Age Data\Loadding data into SQL table.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Clean Age Data\Adding new columns.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Clean Age Data.Paths[OLE DB Destination Error Output]"
+              endId="Package\Clean Age Data\Loading error rows.Inputs[Flat File Destination Input]"
+              name="OLE DB Destination Error Output"
+              startId="Package\Clean Age Data\Loadding data into SQL table.Outputs[OLE DB Destination Error Output]" />
+            <path
+              refId="Package\Clean Age Data.Paths[OLE DB Source Output]"
+              endId="Package\Clean Age Data\Correcting column's datatype.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Clean Age Data\Loading Data from SQL server.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Clean Age Data"
+          TopLeft="74.9999959021809,113.533332543837" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Clean Age Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="219.2,41.6"
+          Id="Package\Clean Age Data\Loading Data from SQL server"
+          TopLeft="100.833327824043,84.9333327427175" />
+        <NodeLayout
+          Size="212.8,41.6"
+          Id="Package\Clean Age Data\Correcting column's datatype"
+          TopLeft="363.566653052801,84.0666660820777" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Clean Age Data\Adding new columns"
+          TopLeft="649.39997076889,81.4666661001577" />
+        <EdgeLayout
+          Id="Package\Clean Age Data.Paths[Data Conversion Output]"
+          TopLeft="576.366653052801,103.566666091118">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="73.0333177160885,0"
+              Start="0,0"
+              End="65.5333177160885,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="65.5333177160885,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="212.8,41.6"
+          Id="Package\Clean Age Data\Loadding data into SQL table"
+          TopLeft="876.066625051036,80.5999994395177" />
+        <EdgeLayout
+          Id="Package\Clean Age Data.Paths[Derived Column Output]"
+          TopLeft="823.79997076889,101.833332769838">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="52.2666542821469,0"
+              Start="0,0"
+              End="44.7666542821469,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="44.7666542821469,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clean Age Data.Paths[OLE DB Source Output]"
+          TopLeft="320.033327824043,105.299999412398">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="43.5333252287584,0"
+              Start="0,0"
+              End="36.0333252287584,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="36.0333252287584,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Clean Age Data\Loading error rows"
+          TopLeft="880.266635705367,150.799998951356" />
+        <EdgeLayout
+          Id="Package\Clean Age Data.Paths[OLE DB Destination Error Output]"
+          TopLeft="982.466625051036,122.199999439518">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-19.7999893456695,28.5999995118379"
+              Start="0,0"
+              End="-19.7999893456695,21.0999995118379">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.2999997559189" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.2999997559189"
+                    Point2="0,14.2999997559189"
+                    Point3="-4,14.2999997559189" />
+                  <mssgle:LineSegment
+                    End="-15.7999893456695,14.2999997559189" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-15.7999893456695,14.2999997559189"
+                    Point2="-19.7999893456695,14.2999997559189"
+                    Point3="-19.7999893456695,18.2999997559189" />
+                  <mssgle:LineSegment
+                    End="-19.7999893456695,21.0999995118379" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-83.1089009228347,19.2999997559189,146.4178125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Clean Age Data\Loading Data from SQL server">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Clean Age Data\Loadding data into SQL table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
