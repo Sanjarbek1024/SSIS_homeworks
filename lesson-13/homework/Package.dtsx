@@ -1,0 +1,1831 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/29/2025 8:02:17 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SANJARBEK"
+  DTS:CreatorName="SANJARBEK\Mezon"
+  DTS:DTSID="{005E4F90-2AEE-4EDC-BFF5-8A61C7B1FC52}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="3072"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{4E7B9EB8-1656-4D43-88B9-A9136055DD0D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DynamicFlatFileConnectionManager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{51165454-2434-4F7C-9508-4B6F644EF85C}"
+      DTS:ObjectName="DynamicFlatFileConnectionManager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::FullFilePath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="3072"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EmployeeID"
+              DTS:DTSID="{ABE55BA9-8A84-4D87-A893-6A9894BA4981}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Name"
+              DTS:DTSID="{C9576140-FE89-4871-B989-0D3B4EC20EDC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Department"
+              DTS:DTSID="{1E3F579A-6619-4CF3-8378-698779D47F4E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Salary"
+              DTS:DTSID="{B97A665D-DE30-4AF3-8DDC-B39BDBAF105D}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost\SANJARBEK.SSIS13]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{87F34B32-5484-44C0-942C-781C166F3EBB}"
+      DTS:ObjectName="localhost\SANJARBEK.SSIS13">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost\SANJARBEK;Initial Catalog=SSIS13;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{87F34B32-5484-44C0-942C-781C166F3EBB}localhost\SANJARBEK.SSIS13;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B018BF40-B147-4A1D-A2C5-6075495E7AE0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FullFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{49891085-59A5-4E47-87E4-925068216ED1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SourceFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Mezon\OneDrive\Desktop\Sources</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Loop Through Employee Files"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{D3C790A5-C41E-4E43-9A12-3A186E499700}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Loop Through Employee Files">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{5AC29CC6-5337-43C2-8DA8-78647F63B770}"
+        DTS:ObjectName="{5AC29CC6-5337-43C2-8DA8-78647F63B770}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[User::SourceFolder]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\Mezon\OneDrive\Desktop\Sources" />
+            <FEFEProperty
+              FileSpec="*.txt" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Loop Through Employee Files\DFT_Process Single File"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{62F8578D-7226-498F-80FB-767FFA093A82}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_Process Single File"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Correct_DataType"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Inputs[Data Conversion Input].Columns[EmployeeID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="EmployeeID"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output].Columns[EmployeeID]" />
+                        <inputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Inputs[Data Conversion Input].Columns[Name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Name"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output].Columns[Name]" />
+                        <inputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Inputs[Data Conversion Input].Columns[Department]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Department"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output].Columns[Department]" />
+                        <inputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Inputs[Data Conversion Input].Columns[Salary]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Salary"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output].Columns[Salary]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Output].Columns[True EmployeeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Output].Columns[True EmployeeID]"
+                          name="True EmployeeID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output].Columns[EmployeeID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Output].Columns[True Name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Output].Columns[True Name]"
+                          name="True Name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output].Columns[Name]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Output].Columns[True Department]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Output].Columns[True Department]"
+                          name="True Department"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output].Columns[Department]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Output].Columns[True Salary]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="20"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Output].Columns[True Salary]"
+                          name="True Salary"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output].Columns[Salary]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loop Through Employee Files\DFT_Process Single File\CSPL_Separate"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="CSPL_Separate"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Loop Through Employee Files\DFT_Process Single File\CSPL_Separate.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\CSPL_Separate.Inputs[Conditional Split Input].Columns[ValidEmployeeID]"
+                          cachedDataType="i4"
+                          cachedName="ValidEmployeeID"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[ValidEmployeeID]" />
+                        <inputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\CSPL_Separate.Inputs[Conditional Split Input].Columns[_Similarity_True Name]"
+                          cachedDataType="r4"
+                          cachedName="_Similarity_True Name"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[_Similarity_True Name]" />
+                        <inputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\CSPL_Separate.Inputs[Conditional Split Input].Columns[_Similarity_True Department]"
+                          cachedDataType="r4"
+                          cachedName="_Similarity_True Department"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[_Similarity_True Department]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loop Through Employee Files\DFT_Process Single File\CSPL_Separate.Outputs[Matched]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Matched"
+                      synchronousInputId="Package\Loop Through Employee Files\DFT_Process Single File\CSPL_Separate.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">![ISNULL](#{Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[ValidEmployeeID]}) &amp;&amp; #{Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[_Similarity_True Name]} &gt;= 0.85 &amp;&amp; #{Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[_Similarity_True Department]} &gt;= 0.85</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">!ISNULL(ValidEmployeeID) &amp;&amp; [_Similarity_True Name] &gt;= 0.85 &amp;&amp; [_Similarity_True Department] &gt;= 0.85</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Loop Through Employee Files\DFT_Process Single File\CSPL_Separate.Outputs[Unmatched]"
+                      description="Output 2 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Unmatched"
+                      synchronousInputId="Package\Loop Through Employee Files\DFT_Process Single File\CSPL_Separate.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">[ISNULL](#{Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[ValidEmployeeID]}) || #{Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[_Similarity_True Name]} &lt; 0.85 || #{Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[_Similarity_True Department]} &lt; 0.85</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(ValidEmployeeID) || [_Similarity_True Name] &lt; 0.85 || [_Similarity_True Department] &lt; 0.85</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">1</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Loop Through Employee Files\DFT_Process Single File\CSPL_Separate.Outputs[Conditional Split Default Output]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="Conditional Split Default Output"
+                      synchronousInputId="Package\Loop Through Employee Files\DFT_Process Single File\CSPL_Separate.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Loop Through Employee Files\DFT_Process Single File\CSPL_Separate.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\Loop Through Employee Files\DFT_Process Single File\CSPL_Separate.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\CSPL_Separate.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\CSPL_Separate.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\CSPL_Separate.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\CSPL_Separate.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loop Through Employee Files\DFT_Process Single File\DC_AddStatusColumn"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="DC_AddStatusColumn"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Loop Through Employee Files\DFT_Process Single File\DC_AddStatusColumn.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loop Through Employee Files\DFT_Process Single File\DC_AddStatusColumn.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Loop Through Employee Files\DFT_Process Single File\DC_AddStatusColumn.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\DC_AddStatusColumn.Outputs[Derived Column Output].Columns[Status]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\DC_AddStatusColumn.Outputs[Derived Column Output].Columns[Status]"
+                          name="Status"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_WSTR,50)("Not in SQL table")</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_WSTR,50)("Not in SQL table")</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Loop Through Employee Files\DFT_Process Single File\DC_AddStatusColumn.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Loop Through Employee Files\DFT_Process Single File\DC_AddStatusColumn.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\DC_AddStatusColumn.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\DC_AddStatusColumn.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\DC_AddStatusColumn.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\DC_AddStatusColumn.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DEST_ErrorEmployees"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Employees_Errors]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost\SANJARBEK.SSIS13]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost\SANJARBEK.SSIS13]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees.Inputs[OLE DB Destination Input].Columns[Status]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Status"
+                          externalMetadataColumnId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\DC_AddStatusColumn.Outputs[Derived Column Output].Columns[Status]" />
+                        <inputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees.Inputs[OLE DB Destination Input].Columns[True Salary]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="True Salary"
+                          externalMetadataColumnId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees.Inputs[OLE DB Destination Input].ExternalColumns[Salary]"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[True Salary]" />
+                        <inputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees.Inputs[OLE DB Destination Input].Columns[True Department]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="True Department"
+                          externalMetadataColumnId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees.Inputs[OLE DB Destination Input].ExternalColumns[Department]"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[True Department]" />
+                        <inputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees.Inputs[OLE DB Destination Input].Columns[True Name]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="True Name"
+                          externalMetadataColumnId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[True Name]" />
+                        <inputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees.Inputs[OLE DB Destination Input].Columns[True EmployeeID]"
+                          cachedDataType="i4"
+                          cachedName="True EmployeeID"
+                          externalMetadataColumnId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeID]"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[True EmployeeID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeID]"
+                          dataType="i4"
+                          name="EmployeeID" />
+                        <externalMetadataColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                          dataType="wstr"
+                          length="100"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees.Inputs[OLE DB Destination Input].ExternalColumns[Department]"
+                          dataType="wstr"
+                          length="100"
+                          name="Department" />
+                        <externalMetadataColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees.Inputs[OLE DB Destination Input].ExternalColumns[Salary]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="Salary" />
+                        <externalMetadataColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                          dataType="wstr"
+                          length="50"
+                          name="Status" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ValidEmployees"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DEST_ValidEmployees"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[CleanedEmployee]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ValidEmployees.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost\SANJARBEK.SSIS13]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost\SANJARBEK.SSIS13]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ValidEmployees.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ValidEmployees.Inputs[OLE DB Destination Input].Columns[ValidEmployeeID]"
+                          cachedDataType="i4"
+                          cachedName="ValidEmployeeID"
+                          externalMetadataColumnId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ValidEmployees.Inputs[OLE DB Destination Input].ExternalColumns[ValidEmployeeID]"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[ValidEmployeeID]" />
+                        <inputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ValidEmployees.Inputs[OLE DB Destination Input].Columns[ValidName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="ValidName"
+                          externalMetadataColumnId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ValidEmployees.Inputs[OLE DB Destination Input].ExternalColumns[ValidName]"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[ValidName]" />
+                        <inputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ValidEmployees.Inputs[OLE DB Destination Input].Columns[ValidDepartment]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="ValidDepartment"
+                          externalMetadataColumnId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ValidEmployees.Inputs[OLE DB Destination Input].ExternalColumns[ValidDepartment]"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[ValidDepartment]" />
+                        <inputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ValidEmployees.Inputs[OLE DB Destination Input].Columns[ValidSalary]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="ValidSalary"
+                          externalMetadataColumnId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ValidEmployees.Inputs[OLE DB Destination Input].ExternalColumns[ValidSalary]"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[ValidSalary]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ValidEmployees.Inputs[OLE DB Destination Input].ExternalColumns[ValidEmployeeID]"
+                          dataType="i4"
+                          name="ValidEmployeeID" />
+                        <externalMetadataColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ValidEmployees.Inputs[OLE DB Destination Input].ExternalColumns[ValidName]"
+                          dataType="wstr"
+                          length="100"
+                          name="ValidName" />
+                        <externalMetadataColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ValidEmployees.Inputs[OLE DB Destination Input].ExternalColumns[ValidDepartment]"
+                          dataType="wstr"
+                          length="100"
+                          name="ValidDepartment" />
+                        <externalMetadataColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ValidEmployees.Inputs[OLE DB Destination Input].ExternalColumns[ValidSalary]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="ValidSalary" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ValidEmployees.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ValidEmployees.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ValidEmployees.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ValidEmployees.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ValidEmployees.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ValidEmployees.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch"
+                  componentClassID="Microsoft.FuzzyLookup"
+                  contactInfo="Fuzzy Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;5"
+                  description="Performs data cleaning tasks such as standardizing data, correcting data, and providing missing values.  Uses fuzzy matching to return one or more close matches from a reference table. For example, lookup customer data by address, even if your input address data does not exactly match your reference address data."
+                  name="FZL_EmployeeMatch"
+                  version="5">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Indicates whether to reuse an existing fuzzy-match index table or build a new one. The new index table can be temporary, persisted, or persisted and maintained."
+                      name="MatchIndexOptions"
+                      typeConverter="tcMatchIndexOptions">1</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the maximum amount of memory (MB) that this instance of the Fuzzy Lookup transformation can use.  If 0 is given, then the transform will dynamically adjust it's memory usage based upon it's requirements and available system memory."
+                      expressionType="Notify"
+                      name="MaxMemoryUsage" />
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the name of the fuzzy-match index table to be reused or the table name in which a newly generated fuzzy-match index table will be written."
+                      name="MatchIndexName"
+                      state="escaped" />
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the reference table or view against which to match incoming records."
+                      name="ReferenceTableName"
+                      state="escaped">_x005B_dbo_x005D_._x005B_Employees_x005D_</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Indicates whether to drop an existing fuzzy-match index table if transformation is configured to generate a new table and a table with the same name already exists."
+                      name="DropExistingMatchIndex">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Whether a copy of the reference table should be made for fuzzy match index construction and subsequent matching.  It is strongly recommended that a copy always be made, otherwise unpredictable output may result if the contents of the reference table change during package execution (or between executions if reusing a fuzzy match index).  If this property is set to false, the reference table must additionally have a clustered index built upon an integer identity column."
+                      name="CopyReferenceTable">1</property>
+                    <property
+                      dataType="System.UInt32"
+                      description="Specifies the maximum number of fuzzy matches to return for an input record."
+                      name="MaxOutputMatchesPerInput">1</property>
+                    <property
+                      dataType="System.Single"
+                      description="Specifies the minimum similarity score required for the match results that the transformation returns."
+                      name="MinSimilarity">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the set of white-space and punctuation characters used to separate fuzzy match fields into the words used for matching and scoring a fuzzy lookup."
+                      name="Delimiters"
+                      state="escaped">_x0020__x0009__x000D__x000A__x002C_._x003B_:-_x0022__x0027__x0026__x002F__x005C__x0040__x0021__x003F__x0028__x0029__x003C__x003E__x005B__x005D__x007B__x007D__x007C__x0023__x002A__x005E__x0025_</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the metadata of the reference table in XML format."
+                      name="ReferenceMetadataXml"
+                      state="escaped">_x003C_referenceMetadata_x003E__x003C_referenceColumns_x003E__x003C_referenceColumn_x0020_name_x003D__x0022_EmployeeID_x0022__x0020_dataType_x003D__x0022_DT_I4_x0022__x0020_length_x003D__x0022_0_x0022__x0020_precision_x003D__x0022_0_x0022__x0020_scale_x003D__x0022_0_x0022__x0020_codePage_x003D__x0022_0_x0022__x002F__x003E__x003C_referenceColumn_x0020_name_x003D__x0022_Name_x0022__x0020_dataType_x003D__x0022_DT_WSTR_x0022__x0020_length_x003D__x0022_100_x0022__x0020_precision_x003D__x0022_0_x0022__x0020_scale_x003D__x0022_0_x0022__x0020_codePage_x003D__x0022_0_x0022__x002F__x003E__x003C_referenceColumn_x0020_name_x003D__x0022_Department_x0022__x0020_dataType_x003D__x0022_DT_WSTR_x0022__x0020_length_x003D__x0022_100_x0022__x0020_precision_x003D__x0022_0_x0022__x0020_scale_x003D__x0022_0_x0022__x0020_codePage_x003D__x0022_0_x0022__x002F__x003E__x003C_referenceColumn_x0020_name_x003D__x0022_Salary_x0022__x0020_dataType_x003D__x0022_DT_STR_x0022__x0020_length_x003D__x0022_20_x0022__x0020_precision_x003D__x0022_0_x0022__x0020_scale_x003D__x0022_0_x0022__x0020_codePage_x003D__x0022_1252_x0022__x002F__x003E__x003C__x002F_referenceColumns_x003E__x003C__x002F_referenceMetadata_x003E__x000D__x000A_</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="If true, each input record will be directly compared against EVERY record in the reference table.  This may produce slightly better results, but will be extremely slow unless the number of records in the reference table is very small.  Note that the entire reference table will be loaded into main memory if this option is enabled.  This option is primarily intended for debugging purposes and should be used with care."
+                      name="Exhaustive">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="If true, Fuzzy Lookup will partially load the error-tolerant index and the reference table into main memory before execution begins.  This can greatly enhance performance if many input rows are to be processed."
+                      name="WarmCaches">true</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost\SANJARBEK.SSIS13]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost\SANJARBEK.SSIS13]"
+                      description="Microsoft SQL Server connection and database in which the fuzzy lookup reference table is located and where the fuzzy match index table will be stored and accessed."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Inputs[Fuzzy Lookup Input]"
+                      name="Fuzzy Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Inputs[Fuzzy Lookup Input].Columns[True EmployeeID]"
+                          cachedDataType="i4"
+                          cachedName="True EmployeeID"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Output].Columns[True EmployeeID]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Name of the reference table column with which the input column should be matched."
+                              name="JoinToReferenceColumn"
+                              state="escaped">EmployeeID</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the match is a fuzzy or an exact match."
+                              name="JoinType"
+                              typeConverter="tcJoinType">1</property>
+                            <property
+                              dataType="System.Single"
+                              description="Specifies the minimum textual similarity required between input and fuzzy matched records on values in this particular join column.  Must be a floating point value between 0.0 and 1.0."
+                              name="MinSimilarity">1</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data. The options are those supported by the FoldString function."
+                              name="FuzzyComparisonFlags"
+                              typeConverter="tcComparisonFlags">1</property>
+                            <property
+                              dataType="System.UInt32"
+                              description="Flags to FoldString that should be used when comparing whether two strings are equivalent."
+                              name="FuzzyComparisonFlagsEx"
+                              typeConverter="tcComparisonFlagsEx">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Inputs[Fuzzy Lookup Input].Columns[True Name]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="True Name"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Output].Columns[True Name]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Name of the reference table column with which the input column should be matched."
+                              name="JoinToReferenceColumn"
+                              state="escaped">Name</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the match is a fuzzy or an exact match."
+                              name="JoinType"
+                              typeConverter="tcJoinType">2</property>
+                            <property
+                              dataType="System.Single"
+                              description="Specifies the minimum textual similarity required between input and fuzzy matched records on values in this particular join column.  Must be a floating point value between 0.0 and 1.0."
+                              name="MinSimilarity">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data. The options are those supported by the FoldString function."
+                              name="FuzzyComparisonFlags"
+                              typeConverter="tcComparisonFlags">1</property>
+                            <property
+                              dataType="System.UInt32"
+                              description="Flags to FoldString that should be used when comparing whether two strings are equivalent."
+                              name="FuzzyComparisonFlagsEx"
+                              typeConverter="tcComparisonFlagsEx">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Inputs[Fuzzy Lookup Input].Columns[True Department]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="True Department"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Output].Columns[True Department]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Name of the reference table column with which the input column should be matched."
+                              name="JoinToReferenceColumn"
+                              state="escaped">Department</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the match is a fuzzy or an exact match."
+                              name="JoinType"
+                              typeConverter="tcJoinType">2</property>
+                            <property
+                              dataType="System.Single"
+                              description="Specifies the minimum textual similarity required between input and fuzzy matched records on values in this particular join column.  Must be a floating point value between 0.0 and 1.0."
+                              name="MinSimilarity">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data. The options are those supported by the FoldString function."
+                              name="FuzzyComparisonFlags"
+                              typeConverter="tcComparisonFlags">1</property>
+                            <property
+                              dataType="System.UInt32"
+                              description="Flags to FoldString that should be used when comparing whether two strings are equivalent."
+                              name="FuzzyComparisonFlagsEx"
+                              typeConverter="tcComparisonFlagsEx">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Inputs[Fuzzy Lookup Input].Columns[True Salary]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="True Salary"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Output].Columns[True Salary]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Name of the reference table column with which the input column should be matched."
+                              name="JoinToReferenceColumn"
+                              state="escaped">Salary</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the match is a fuzzy or an exact match."
+                              name="JoinType"
+                              typeConverter="tcJoinType">2</property>
+                            <property
+                              dataType="System.Single"
+                              description="Specifies the minimum textual similarity required between input and fuzzy matched records on values in this particular join column.  Must be a floating point value between 0.0 and 1.0."
+                              name="MinSimilarity">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data. The options are those supported by the FoldString function."
+                              name="FuzzyComparisonFlags"
+                              typeConverter="tcComparisonFlags">1</property>
+                            <property
+                              dataType="System.UInt32"
+                              description="Flags to FoldString that should be used when comparing whether two strings are equivalent."
+                              name="FuzzyComparisonFlagsEx"
+                              typeConverter="tcComparisonFlagsEx">0</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output]"
+                      name="Fuzzy Lookup Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[True EmployeeID]"
+                          dataType="i4"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[True EmployeeID]"
+                          name="True EmployeeID">
+                          <properties>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the reference table column that is copied to the output for each match result."
+                              name="CopyFromReferenceColumn"
+                              state="escaped" />
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                              name="SourceInputColumnLineageID">#{Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Output].Columns[True EmployeeID]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the column is used to indicate confidence or similarity."
+                              name="ColumnType"
+                              typeConverter="tcColumnType">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[True Name]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[True Name]"
+                          name="True Name">
+                          <properties>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the reference table column that is copied to the output for each match result."
+                              name="CopyFromReferenceColumn"
+                              state="escaped" />
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                              name="SourceInputColumnLineageID">#{Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Output].Columns[True Name]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the column is used to indicate confidence or similarity."
+                              name="ColumnType"
+                              typeConverter="tcColumnType">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[True Department]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[True Department]"
+                          name="True Department">
+                          <properties>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the reference table column that is copied to the output for each match result."
+                              name="CopyFromReferenceColumn"
+                              state="escaped" />
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                              name="SourceInputColumnLineageID">#{Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Output].Columns[True Department]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the column is used to indicate confidence or similarity."
+                              name="ColumnType"
+                              typeConverter="tcColumnType">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[True Salary]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[True Salary]"
+                          name="True Salary">
+                          <properties>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the reference table column that is copied to the output for each match result."
+                              name="CopyFromReferenceColumn"
+                              state="escaped" />
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                              name="SourceInputColumnLineageID">#{Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Output].Columns[True Salary]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the column is used to indicate confidence or similarity."
+                              name="ColumnType"
+                              typeConverter="tcColumnType">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[ValidEmployeeID]"
+                          dataType="i4"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[ValidEmployeeID]"
+                          name="ValidEmployeeID">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the reference table column that is copied to the output for each match result."
+                              name="CopyFromReferenceColumn"
+                              state="escaped">EmployeeID</property>
+                            <property
+                              containsID="true"
+                              dataType="System.Null"
+                              description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                              name="SourceInputColumnLineageID" />
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the column is used to indicate confidence or similarity."
+                              name="ColumnType"
+                              typeConverter="tcColumnType">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[ValidName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[ValidName]"
+                          name="ValidName">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the reference table column that is copied to the output for each match result."
+                              name="CopyFromReferenceColumn"
+                              state="escaped">Name</property>
+                            <property
+                              containsID="true"
+                              dataType="System.Null"
+                              description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                              name="SourceInputColumnLineageID" />
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the column is used to indicate confidence or similarity."
+                              name="ColumnType"
+                              typeConverter="tcColumnType">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[ValidDepartment]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[ValidDepartment]"
+                          name="ValidDepartment">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the reference table column that is copied to the output for each match result."
+                              name="CopyFromReferenceColumn"
+                              state="escaped">Department</property>
+                            <property
+                              containsID="true"
+                              dataType="System.Null"
+                              description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                              name="SourceInputColumnLineageID" />
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the column is used to indicate confidence or similarity."
+                              name="ColumnType"
+                              typeConverter="tcColumnType">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[ValidSalary]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[ValidSalary]"
+                          name="ValidSalary">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the reference table column that is copied to the output for each match result."
+                              name="CopyFromReferenceColumn"
+                              state="escaped">Salary</property>
+                            <property
+                              containsID="true"
+                              dataType="System.Null"
+                              description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                              name="SourceInputColumnLineageID" />
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the column is used to indicate confidence or similarity."
+                              name="ColumnType"
+                              typeConverter="tcColumnType">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[_Similarity]"
+                          dataType="r4"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[_Similarity]"
+                          name="_Similarity">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the column is used to indicate confidence or similarity."
+                              name="ColumnType"
+                              typeConverter="tcColumnType">1</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[_Confidence]"
+                          dataType="r4"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[_Confidence]"
+                          name="_Confidence">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the column is used to indicate confidence or similarity."
+                              name="ColumnType"
+                              typeConverter="tcColumnType">2</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[_Similarity_True Name]"
+                          dataType="r4"
+                          description="Column-level similarity score for fuzzy join on column &quot;True Name&quot;."
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[_Similarity_True Name]"
+                          name="_Similarity_True Name">
+                          <properties>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the reference table column that is copied to the output for each match result."
+                              name="CopyFromReferenceColumn"
+                              state="escaped" />
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                              name="SourceInputColumnLineageID">#{Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Output].Columns[True Name]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the column is used to indicate confidence or similarity."
+                              name="ColumnType"
+                              typeConverter="tcColumnType">3</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[_Similarity_True Department]"
+                          dataType="r4"
+                          description="Column-level similarity score for fuzzy join on column &quot;True Department&quot;."
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[_Similarity_True Department]"
+                          name="_Similarity_True Department">
+                          <properties>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the reference table column that is copied to the output for each match result."
+                              name="CopyFromReferenceColumn"
+                              state="escaped" />
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                              name="SourceInputColumnLineageID">#{Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Output].Columns[True Department]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the column is used to indicate confidence or similarity."
+                              name="ColumnType"
+                              typeConverter="tcColumnType">3</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[_Similarity_True Salary]"
+                          dataType="r4"
+                          description="Column-level similarity score for fuzzy join on column &quot;True Salary&quot;."
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output].Columns[_Similarity_True Salary]"
+                          name="_Similarity_True Salary">
+                          <properties>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the reference table column that is copied to the output for each match result."
+                              name="CopyFromReferenceColumn"
+                              state="escaped" />
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                              name="SourceInputColumnLineageID">#{Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Output].Columns[True Salary]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies whether the column is used to indicate confidence or similarity."
+                              name="ColumnType"
+                              typeConverter="tcColumnType">3</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="3072"
+                  name="SRC_EmployeeFile"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DynamicFlatFileConnectionManager]"
+                      connectionManagerRefId="Package.ConnectionManagers[DynamicFlatFileConnectionManager]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output].Columns[EmployeeID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output].ExternalColumns[EmployeeID]"
+                          length="50"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output].Columns[EmployeeID]"
+                          name="EmployeeID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output].Columns[Name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output].ExternalColumns[Name]"
+                          length="50"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output].Columns[Name]"
+                          name="Name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output].Columns[Department]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output].ExternalColumns[Department]"
+                          length="50"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output].Columns[Department]"
+                          name="Department"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output].Columns[Salary]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output].ExternalColumns[Salary]"
+                          length="50"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output].Columns[Salary]"
+                          name="Salary"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output].ExternalColumns[EmployeeID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="EmployeeID" />
+                        <externalMetadataColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output].ExternalColumns[Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output].ExternalColumns[Department]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Department" />
+                        <externalMetadataColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output].ExternalColumns[Salary]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Salary" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Loop Through Employee Files\DFT_Process Single File.Paths[Data Conversion Output]"
+                  endId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Inputs[Fuzzy Lookup Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Loop Through Employee Files\DFT_Process Single File.Paths[Derived Column Output]"
+                  endId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Loop Through Employee Files\DFT_Process Single File\DC_AddStatusColumn.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Loop Through Employee Files\DFT_Process Single File.Paths[Flat File Source Output]"
+                  endId="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType.Inputs[Data Conversion Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile.Outputs[Flat File Source Output]" />
+                <path
+                  refId="Package\Loop Through Employee Files\DFT_Process Single File.Paths[Fuzzy Lookup Output]"
+                  endId="Package\Loop Through Employee Files\DFT_Process Single File\CSPL_Separate.Inputs[Conditional Split Input]"
+                  name="Fuzzy Lookup Output"
+                  startId="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch.Outputs[Fuzzy Lookup Output]" />
+                <path
+                  refId="Package\Loop Through Employee Files\DFT_Process Single File.Paths[Matched]"
+                  endId="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ValidEmployees.Inputs[OLE DB Destination Input]"
+                  name="Matched"
+                  startId="Package\Loop Through Employee Files\DFT_Process Single File\CSPL_Separate.Outputs[Matched]" />
+                <path
+                  refId="Package\Loop Through Employee Files\DFT_Process Single File.Paths[Unmatched]"
+                  endId="Package\Loop Through Employee Files\DFT_Process Single File\DC_AddStatusColumn.Inputs[Derived Column Input]"
+                  name="Unmatched"
+                  startId="Package\Loop Through Employee Files\DFT_Process Single File\CSPL_Separate.Outputs[Unmatched]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{9AA49FF5-B0E7-4025-B196-DBCDE4FFC483}"
+          DTS:ObjectName="{9AA49FF5-B0E7-4025-B196-DBCDE4FFC483}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::FullFilePath" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="193.6,41.6"
+          Id="Package\Loop Through Employee Files\DFT_Process Single File"
+          TopLeft="53.199989618858,33.3333323449559" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="300,140.8"
+          Size="300,184"
+          Id="Package\Loop Through Employee Files"
+          TopLeft="136.66665919953,65.8666662086382" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Loop Through Employee Files\DFT_Process Single File">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="169.6,41.6"
+          Id="Package\Loop Through Employee Files\DFT_Process Single File\SRC_EmployeeFile"
+          TopLeft="270.833318535653,23.3999998372794" />
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\Loop Through Employee Files\DFT_Process Single File\Correct_DataType"
+          TopLeft="275.833318262465,129.133332435356" />
+        <EdgeLayout
+          Id="Package\Loop Through Employee Files\DFT_Process Single File.Paths[Flat File Source Output]"
+          TopLeft="356.533318399059,64.9999998372794">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64.1333325980769"
+              Start="0,0"
+              End="0,56.6333325980769">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.6333325980769" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="177.6,41.6"
+          Id="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch"
+          TopLeft="269.166651960049,220.133331802554" />
+        <EdgeLayout
+          Id="Package\Loop Through Employee Files\DFT_Process Single File.Paths[Data Conversion Output]"
+          TopLeft="357.699985111257,170.733332435356">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.3999993671973"
+              Start="0,0"
+              End="0,41.8999993671973">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.8999993671973" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\Loop Through Employee Files\DFT_Process Single File\CSPL_Separate"
+          TopLeft="282.499984564881,314.533332381116" />
+        <EdgeLayout
+          Id="Package\Loop Through Employee Files\DFT_Process Single File.Paths[Fuzzy Lookup Output]"
+          TopLeft="358.633318262465,261.733331802554">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.8000005785624"
+              Start="0,0"
+              End="0,45.3000005785624">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.3000005785624" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="186.4,41.6"
+          Id="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ValidEmployees"
+          TopLeft="435.833309520451,433.933330410388" />
+        <EdgeLayout
+          Id="Package\Loop Through Employee Files\DFT_Process Single File.Paths[Matched]"
+          TopLeft="383.566651231548,356.133332381116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="145.466658288903,77.7999980292718"
+              Start="0,0"
+              End="145.466658288903,70.2999980292718">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.6012363129207" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.6012363129207"
+                    Point2="0,31.6012363129207"
+                    Point3="4,31.6012363129207" />
+                  <mssgle:LineSegment
+                    End="141.466658288903,31.6012363129207" />
+                  <mssgle:CubicBezierSegment
+                    Point1="141.466658288903,31.6012363129207"
+                    Point2="145.466658288903,31.6012363129207"
+                    Point3="145.466658288903,35.6012363129207" />
+                  <mssgle:LineSegment
+                    End="145.466658288903,70.2999980292718" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="53.7953408632016,36.6012363129207,37.8759765625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\Loop Through Employee Files\DFT_Process Single File\DC_AddStatusColumn"
+          TopLeft="125.833326458103,436.466664454871" />
+        <EdgeLayout
+          Id="Package\Loop Through Employee Files\DFT_Process Single File.Paths[Unmatched]"
+          TopLeft="335.033317898214,356.133332381116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-117.599991440111,80.3333320737548"
+              Start="0,0"
+              End="-117.599991440111,72.8333320737548">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.6302400382055" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.6302400382055"
+                    Point2="0,32.6302400382055"
+                    Point3="-4,32.6302400382055" />
+                  <mssgle:LineSegment
+                    End="-113.599991440111,32.6302400382055" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-113.599991440111,32.6302400382055"
+                    Point2="-117.599991440111,32.6302400382055"
+                    Point3="-117.599991440111,36.6302400382055" />
+                  <mssgle:LineSegment
+                    End="-117.599991440111,72.8333320737548" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-84.1969293138055,37.6302400382055,50.7938671875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="186.4,41.6"
+          Id="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees"
+          TopLeft="122.499993306896,519.999997324149" />
+        <EdgeLayout
+          Id="Package\Loop Through Employee Files\DFT_Process Single File.Paths[Derived Column Output]"
+          TopLeft="216.566659882499,478.066664454871">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.9333328692783"
+              Start="0,0"
+              End="0,34.4333328692783">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.4333328692783" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop Through Employee Files\DFT_Process Single File\FZL_EmployeeMatch">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ValidEmployees">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop Through Employee Files\DFT_Process Single File\DEST_ErrorEmployees">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
